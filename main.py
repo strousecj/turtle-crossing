@@ -8,8 +8,9 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-player = Player()
+scoreboard = Scoreboard()
 
+player = Player()
 screen.onkeypress(player.move_forward, "Up")
 screen.listen()
 
@@ -19,6 +20,10 @@ while game_is_on:
     screen.update()
 
     if player.is_at_finish_line():
+        scoreboard.increase_level()
         player.reset_to_start()
+
+
+scoreboard.game_over()
 
 screen.exitonclick()
