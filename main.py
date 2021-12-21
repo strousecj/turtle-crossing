@@ -43,6 +43,7 @@ while game_is_on:
     if player.is_at_finish_line():
         scoreboard.increase_level()
         player.reset_to_start()
+        car_manager.increase_car_speed()
 
 scoreboard.game_over()
 screen.exitonclick()

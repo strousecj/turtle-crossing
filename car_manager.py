@@ -3,12 +3,13 @@ import random
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 MOVE_DISTANCE = 5
-MOVE_INCREMENT = 10
+MOVE_INCREMENT = 5
 
 
 class CarManager:
     def __init__(self):
         self.car_list = []
+        self.move_distance = MOVE_DISTANCE
 
     def generate_car(self):
         car = Turtle()
@@ -22,7 +23,10 @@ class CarManager:
 
     def move_cars(self):
         for car in self.car_list:
-            car.forward(MOVE_DISTANCE)
+            car.forward(self.move_distance)
 
     def remove_car(self, car_num):
         self.car_list.pop(car_num)
+
+    def increase_car_speed(self):
+        self.move_distance += MOVE_INCREMENT
