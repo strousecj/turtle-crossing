@@ -8,17 +8,15 @@ MOVE_INCREMENT = 10
 
 class CarManager:
     def __init__(self):
-        self.num_cars = 0
         self.car_list = []
 
     def generate_car(self):
-        self.num_cars += 1
         car = Turtle()
         car.penup()
         car.shape("square")
         car.shapesize(stretch_wid=1, stretch_len=2)
         car.color(random.choice(COLORS))
-        car.goto(random.randint(300, 590), random.randint(-270, 270))
+        car.goto(random.randint(300, 600), random.randint(-270, 270))
         car.setheading(180)
         self.car_list.append(car)
 
@@ -27,5 +25,4 @@ class CarManager:
             car.forward(MOVE_DISTANCE)
 
     def remove_car(self, car_num):
-        self.num_cars -= 1
         self.car_list.pop(car_num)
