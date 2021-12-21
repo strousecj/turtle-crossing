@@ -17,17 +17,20 @@ screen.listen()
 car_manager = CarManager()
 cars_to_delete = []
 
+timer = 1
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-    if len(car_manager.car_list) < 20:
+
+    if len(car_manager.car_list) < 20 and timer >= 6:
         car_manager.generate_car()
+        timer = 1
+    timer += 1
 
     car_manager.move_cars()
 
     for i in range(0, len(car_manager.car_list) - 1):
-        # TODO: improve car hit detection
         if player.distance(car_manager.car_list[i]) <= 25:
             game_is_on = False
 

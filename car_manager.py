@@ -17,7 +17,7 @@ class CarManager:
         car.shape("square")
         car.shapesize(stretch_wid=1, stretch_len=2)
         car.color(random.choice(COLORS))
-        car.goto(random.randint(300, 600), random.randint(-270, 270))
+        car.goto(300, random.randint(-250, 250))
         car.setheading(180)
         self.car_list.append(car)
 
